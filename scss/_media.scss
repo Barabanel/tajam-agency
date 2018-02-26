@@ -1,0 +1,163 @@
+@media screen and (max-width: 992px) {
+	.main-nav {
+		position: absolute;
+	    top: 20px;
+	    right: 15px;
+
+	    button {
+	    	display: block;
+	    }
+
+		ul {
+			display: none;
+			background-color: #61337d;
+			width: 200px;
+			position: relative;
+			z-index: 1;
+			margin-top: 30px;
+		}
+
+		li {
+			display: block;
+
+			a {
+				display: block;
+				border-top: 1px solid #fff;
+			}
+
+			&:last-child a {
+					border-bottom: 1px solid #fff;
+				}
+		}
+	}
+
+	.shape-container {
+		-ms-flex-pack: distribute;
+		justify-content: space-around;
+	}
+
+	#quote-slider {
+		width: 750px;
+	}
+
+	#slider-band .slide {
+		width: 750px;
+	}
+
+	.email-form {
+	    width: 600px;
+	    display: block;
+	    margin: 0 auto;
+	}
+
+	.clients {
+	    max-width: 600px;
+	    float: none;
+	    margin: 50px auto 0 auto;
+	}
+
+	footer .wrapper > div {
+	    width: 90%;
+	    margin: 0 auto;
+	    float: none;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.description-item {
+		-webkit-box-flex: 0;
+		-ms-flex: 0 0 50%;
+		flex: 0 0 50%;
+	}
+
+	.work-item {
+	    width: 25%;
+	    height: 25vw;
+	}
+
+	#quote-slider {
+		width: 650px;
+	}
+
+	#slider-band .slide {
+		width: 650px;
+	}
+}
+
+
+@media screen and (max-width: 667px) {
+	.flex-container {
+		flex-wrap: wrap;
+	}
+
+	.logo {
+		width: 80%;
+		margin: 0 auto 30px auto;
+	}
+
+	.story {
+		width: 95%;
+		margin: auto;
+	}
+
+	section.video .video-text {
+		font-size: 0.85em;
+
+		i {
+			margin-bottom: 18px;
+		}
+	}
+
+	.work-item {
+	    width: 33.3%;
+	    height: 33.3vw;
+	}
+
+	#quote-slider {
+		width: 360px;
+	}
+
+	#slider-band .slide {
+		width: 360px;
+	}
+
+	.email-form {
+	    width: auto;
+	    max-width: 95%;
+	}
+
+	footer .wrapper > div {
+	    width: 100%;
+	}
+}
+
+@media screen and (max-width: 375px) {
+	#text-slider {
+		min-height: 420px;
+	}
+	
+	#quote-slider {
+		width: 300px;
+	}
+
+	#slider-band .slide {
+		width: 300px;
+	}
+
+	.email-form {
+	    width: 300px;
+	}
+
+	.client-container {
+		-ms-flex-pack: distribute;
+		justify-content: space-around;
+
+		a {
+			width: 40%;
+		}
+
+		img {
+			width: 100%;
+		}
+	}
+}
