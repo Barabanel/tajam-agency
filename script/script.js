@@ -11,6 +11,20 @@ $(document).ready(function(){
 		}
 	})
 
+	// intern link scroll animation
+	$('a[href^="#"]').on('click',function (e) {
+	    e.preventDefault();
+	    var target = this.hash;
+	    var $target = $(target);
+
+	    $('html, body').stop().animate({
+	        'scrollTop': $target.offset().top
+	    }, 900, 'swing', function () {
+	        window.location.hash = target;
+	    });
+	});
+	// remove last function if you don't want URL change
+
 	//---text-slider--
 	$('.indicators span').on('click', changeText);
 
