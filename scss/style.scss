@@ -20,17 +20,23 @@ $pColor: #a8a7ab;
 }
 
 @mixin linear-gradient($color1, $color2) {
-	background: rgba(55, 43, 90, .85);
+	background: $color1;
 	background: -webkit-gradient(linear, left top, left bottom, from($color1), to($color2));
     background: -webkit-linear-gradient($color1, $color2);
     background: -o-linear-gradient($color1, $color2);
     background: linear-gradient($color1, $color2);
 }
 
+@mixin linear-gradient-image($color1, $color2, $url) {
+	background: $color1;
+	background: -webkit-gradient(linear, left top, left bottom, from($color1), to($color2)), $url;
+    background: -webkit-linear-gradient($color1, $color2), $url;
+    background: -o-linear-gradient($color1, $color2), $url;
+    background: linear-gradient($color1, $color2), $url;
+}
+
 body {
-	font-family: Roboto, serif;
-	position: relative;
-	z-index: -5;
+	font-family: Roboto, serif;	
 }
 
 a {
@@ -76,27 +82,22 @@ section:nth-child(odd) {
 }
 
 #topSection {
-	background: url(../img/header-bg.jpg);
+	@include linear-gradient-image(rgba(9, 5, 47, 0.85), rgba(49, 29, 94, 0.85), url(../img/header-bg.jpg));
 	background-size: cover;
-	min-height: 670px;
-	position: relative;
-	z-index: -2;
-
-	&::before {
-		content: '';
-		@include linear-gradient(rgba(9,5,47,.85), rgba(49,29,94,.85));
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: -1;
-		width: 100%;
-		height: 100%;
-	}
+	/*min-height: 670px;*/
 }
 
 header {
 	padding: 15px 0;
 	width: 100%;
+	@include transition(0.3s);
+}
+
+header.sticky {
+	position: fixed;
+	z-index: 99;
+	background-color: #624c96;
+	padding: 8px 0;
 }
 
 .main-nav {
@@ -204,6 +205,7 @@ header {
 
 .indicators {
 	text-align: center;
+	padding-bottom: 50px;
 
 	span {
 		display: inline-block;
@@ -246,20 +248,13 @@ section.video {
 	cursor: pointer;
 	position: relative;
 	padding: 0;
-	&:after {
-		content: '';
-		@include linear-gradient(rgba(9,5,47,.85), rgba(49,29,94,.85));
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: 1;
-		width: 100%;
-		height: 99.5%;
-	}
+	@include linear-gradient(rgba(9,5,47,.85), rgba(49,29,94,.85));
 
 	video {
 		width: 100%;
 		height: auto;
+		position: relative;
+		z-index: -1;
 	}
 
 	.video-text {
@@ -283,6 +278,10 @@ section.video {
 			font-weight: 900;
 		}
 	}
+}
+
+#expertise {
+	overflow: hidden;
 }
 
 .title {
@@ -360,22 +359,9 @@ section.video {
 
 
 #meatTeam {
-	background-image: url(../img/team-bg.jpg);
+	@include linear-gradient-image(rgba(9,5,47,.85), rgba(49,29,94,.85), url(../img/team-bg.jpg));
 	background-size: cover;
-	position: relative;
-	z-index: -2;
 	text-align: center;
-
-	&:after {
-		content: '';
-		@include linear-gradient(rgba(9,5,47,.85), rgba(49,29,94,.85));
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: -1;
-		width: 100%;
-		height: 100%;
-	}
 
 	.title {
 
@@ -492,21 +478,8 @@ section.video {
 }
 
 #quote {
-	background: url(../img/quote-bg.jpg);
+	@include linear-gradient-image(rgba(9,5,47,.85), rgba(49,29,94,.85), url(../img/quote-bg.jpg));
 	background-size: cover;
-	position: relative;
-	z-index: -2;
-
-	&:after {
-		content: '';
-		@include linear-gradient(rgba(9,5,47,.85), rgba(49,29,94,.85));
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: -1;
-		width: 100%;
-		height: 100%;
-	}
 }
 
 #quote-slider {
@@ -672,6 +645,7 @@ section.video {
 
 	button {
 		background-color: transparent;
+		cursor: pointer;
 		padding: 11px 32px;
 		margin-top: 16px;
 	}
@@ -720,22 +694,10 @@ section.video {
 }
 
 footer {
-	background-image: url(../img/footer-bg.jpg);
+	@include linear-gradient-image(rgba(9,5,47,.85), rgba(49,29,94,.85), url(../img/footer-bg.jpg));
 	background-size: cover;
 	padding: 70px 0;
 	color: #fff;
-	position: relative;
-	z-index: -2;
-	&:after {
-		content: '';
-		@include linear-gradient(rgba(9,5,47,.85), rgba(49,29,94,.85));
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: -1;
-		width: 100%;
-		height: 100%;
-	}
 
 	h3 {
 		font-size: 0.9375rem;

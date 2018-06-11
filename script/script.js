@@ -25,6 +25,19 @@ $(document).ready(function(){
 	});
 	// remove last function if you don't want URL change
 
+	// sticky navbar on scroll
+	var navBar = $('#topSection header');
+	var navBarHeight = $('#topSection header').height();
+	
+	$(window).scroll(function() {
+		if ($(this).scrollTop() > navBarHeight) {
+			navBar.addClass('sticky');
+		} else {
+			navBar.removeClass('sticky');
+		}
+	})
+
+
 	//---text-slider--
 	$('.indicators span').on('click', changeText);
 
@@ -118,6 +131,5 @@ $(document).ready(function(){
 			$('.subscribe input').css('border-color', 'rgba(255,255,255,0.5)');
 		}
 	})
-	
 
 })
