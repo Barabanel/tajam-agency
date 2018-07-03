@@ -11,19 +11,42 @@ $(document).ready(function(){
 		}
 	})
 
-	// intern link scroll animation
-	$('a[href^="#"]').on('click',function (e) {
+	// intern link scroll animation and styling
+	$(document).on('scroll', onScroll);
+	//smooth scroll
+	$('.main-nav a[href^="#"]').on('click',function(e) {
 	    e.preventDefault();
 	    var target = this.hash;
 	    var $target = $(target);
 
+	    $('a').each(function () {
+            $(this).removeClass('active');
+        })
+        $(this).addClass('active');
+
 	    $('html, body').stop().animate({
 	        'scrollTop': $target.offset().top
 	    }, 900, 'swing', function () {
-	        window.location.hash = target;
+	        window.location.hash = target; // remove this if you don't want URL change
+	        $(document).on('scroll', onScroll);
 	    });
 	});
-	// remove last function if you don't want URL change
+	//
+	function onScroll(event) {
+		var position = $(document).scrollTop();
+		$('.main-nav a[href^="#"]').each(function(){
+			var currLink = $(this);
+			var refElem = $(currLink.attr('href'));
+			var refElemPos = refElem.position().top;
+			var refElemHeight = refElem.height();
+			if (refElemPos <= position && refElemPos + refElemHeight > position){
+				currLink.addClass('active');
+			} else {
+				currLink.removeClass('active');
+			}
+		}) 
+	}
+	
 
 	// sticky navbar on scroll
 	var navBar = $('#topSection header');

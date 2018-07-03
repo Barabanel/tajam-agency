@@ -136,7 +136,7 @@ header.sticky {
 			@include transition(0.6s);
 		}
 
-		a:hover, a:active {
+		a:hover, a:active, a.active {
 			color: $mainColor;
 		}
 	}
